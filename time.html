@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Time</title>
+    <link rel="stylesheet" href="./css/time.css">
+    <link rel="shortcut icon" href="./img/clock.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body class="isTime">
+    <div id="main-time">
+        <div class="clock_hours"></div>
+        <div class="clock_years"></div>
+        <div class="countdown"></div>
+        <div class="tutorial inf-fadding"> Click on screen</div>
+    </div>
+</body>
+<script>
+    var bdTime = new Date("12,29,2023")                               //TIME
+    var body = document.querySelector('body')
+    var mainTime = document.querySelector('#main-time')
+    var clock_hours = document.querySelector('.clock_hours')
+    var clock_years = document.querySelector('.clock_years')
+    var countdown = document.querySelector('.countdown')
+    var tutorial = document.querySelector('.tutorial')
+    var dayName = ["Sunday","Monday","Tusday","Wednesday","Thursday","Friday","Saturday"]
+    var monthName = ["January", "February"," March"," April"," May"," June"," July"," August"," September"," October"," November"," December"]
+    var isTime = false
+    function setTime (bdTime) {
+        var currentTime = new Date()
+        var hours = currentTime.getHours()
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        var day = currentTime.getDay();
+        var date = currentTime.getDate();
+        var month = currentTime.getMonth();
+        var year = currentTime.getFullYear();
+        var times = [date,month]
+        function time (time) {
+            if(time < 10) {
+                time = '0' + time
+            }
+            return time
+        }
+        time(hours)
+        clock_hours.innerHTML = time(hours) + ':' + time(minutes) + ':' + time(seconds)
+        clock_years.innerHTML = dayName[day] + ' ' + date + monthName[month] + ' ' + year
+    
+        var diff = bdTime - currentTime
+        if(diff <= 0) {
+            isTime = true
+            countdown.innerHTML = "Time left : 0d 0h 0m 0s"
+            tutorial.style.display = 'unset'
+            return
+        }
+        var dayDiff = Math.floor(diff/ 60 /60 /1000/ 24)
+        var hoursDiff = Math.floor(diff/ 60/ 1000/ 60)% 24
+        var minutesDiff = Math.floor(diff/ 1000/ 60) % 60
+        var secondsDiff = Math.floor (diff/ 1000) % 60
+        
+        countdown.innerHTML = `Time left : ${time(dayDiff)}d ${time(hoursDiff)}h ${time(minutesDiff)}m ${time(secondsDiff)}s `
+            
+        
+    }
+        
+    setInterval(() => {
+        setTime(bdTime)
+    }, 1000)
+
+
+    body.onclick = function() {
+        if(isTime == true) {
+            mainTime.classList.add('fading')
+            setTimeout(() => {
+                mainTime.style.opacity = '0'
+            },2000)
+            setTimeout(function() {
+                location.assign('./flower.html')
+            },2500)
+        } else {
+            alert(countdown.textContent)
+        }
+    }
+
+</script>
+</html>
