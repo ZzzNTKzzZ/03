@@ -8,7 +8,6 @@ var card = document.getElementById('main')
 var background = document.querySelector('.night');
 var mTrack = document.getElementById('main-track')
 var sTrack = document.getElementById('sound-track')
-console.log(sTrack)
 click.onclick = function() {
         card.style.display = 'unset'
         click.style.display = 'none'
