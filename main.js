@@ -14,7 +14,7 @@ click.onclick = function() {
         button.style.display = 'none'
         setTimeout(() => {
                 typewriter()
-                sTrack.volume = 2;
+                sTrack.volume = 1;
         }, 4000);
         setTimeout(() => {
                 sTrack.play()
