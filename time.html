@@ -26,6 +26,8 @@
     var dayName = ["Sunday","Monday","Tusday","Wednesday","Thursday","Friday","Saturday"]
     var monthName = ["January", "February"," March"," April"," May"," June"," July"," August"," September"," October"," November"," December"]
     var isTime = false
+    var scr_width = mainTime.style.width
+    console.log(scr_width)
     function setTime (bdTime) {
         var currentTime = new Date()
         var hours = currentTime.getHours()
@@ -59,7 +61,7 @@
         var secondsDiff = Math.floor (diff/ 1000) % 60
         
         countdown.innerHTML = `Time left : ${time(dayDiff)}d ${time(hoursDiff)}h ${time(minutesDiff)}m ${time(secondsDiff)}s `
-            
+        
         
     }
         
