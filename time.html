@@ -26,8 +26,6 @@
     var dayName = ["Sunday","Monday","Tusday","Wednesday","Thursday","Friday","Saturday"]
     var monthName = ["January", "February"," March"," April"," May"," June"," July"," August"," September"," October"," November"," December"]
     var isTime = false
-    var scr_width = mainTime.style.width
-    console.log(scr_width)
     function setTime (bdTime) {
         var currentTime = new Date()
         var hours = currentTime.getHours()
@@ -47,7 +45,6 @@
         time(hours)
         clock_hours.innerHTML = time(hours) + ':' + time(minutes) + ':' + time(seconds)
         clock_years.innerHTML = dayName[day] + ' ' + date + monthName[month] + ' ' + year
-    
         var diff = bdTime - currentTime
         if(diff <= 0) {
             isTime = true
@@ -59,17 +56,13 @@
         var hoursDiff = Math.floor(diff/ 60/ 1000/ 60)% 24
         var minutesDiff = Math.floor(diff/ 1000/ 60) % 60
         var secondsDiff = Math.floor (diff/ 1000) % 60
-        
         countdown.innerHTML = `Time left : ${time(dayDiff)}d ${time(hoursDiff)}h ${time(minutesDiff)}m ${time(secondsDiff)}s `
-        
-        
+
     }
         
     setInterval(() => {
         setTime(bdTime)
     }, 1000)
-
-
     body.onclick = function() {
         if(isTime == true) {
             mainTime.classList.add('fading')
@@ -80,7 +73,11 @@
                 location.assign('flower.html')
             },2500)
         } else {
-            alert(countdown.textContent)
+            if(body.scrollWidth <= 740) {
+                alert('Not time yet')
+            } else {
+                alert(countdown.textContent)
+            }
         }
     }
 
