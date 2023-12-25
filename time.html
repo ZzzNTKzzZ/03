@@ -35,7 +35,6 @@
         var date = currentTime.getDate();
         var month = currentTime.getMonth();
         var year = currentTime.getFullYear();
-        var times = [date,month]
         function time (time) {
             if(time < 10) {
                 time = '0' + time
@@ -46,18 +45,24 @@
         clock_hours.innerHTML = time(hours) + ':' + time(minutes) + ':' + time(seconds)
         clock_years.innerHTML = dayName[day] + ' ' + date + monthName[month] + ' ' + year
         var diff = bdTime - currentTime
+        // PC   
+        var dayDiff = Math.floor(diff/ 60 /60 /1000/ 24)
+        var hoursDiff = Math.floor(diff/ 60/ 1000/ 60)% 24
+        var minutesDiff = Math.floor(diff/ 1000/ 60) % 60
+        var secondsDiff = Math.floor (diff/ 1000) % 60
+        countdown.innerHTML = `Time left : ${time(dayDiff)}d ${time(hoursDiff)}h ${time(minutesDiff)}m ${time(secondsDiff)}s `
         if(diff <= 0) {
             isTime = true
             countdown.innerHTML = "Time left : 0d 0h 0m 0s"
             tutorial.style.display = 'unset'
             return
         }
-        var dayDiff = Math.floor(diff/ 60 /60 /1000/ 24)
-        var hoursDiff = Math.floor(diff/ 60/ 1000/ 60)% 24
-        var minutesDiff = Math.floor(diff/ 1000/ 60) % 60
-        var secondsDiff = Math.floor (diff/ 1000) % 60
-        countdown.innerHTML = `Time left : ${time(dayDiff)}d ${time(hoursDiff)}h ${time(minutesDiff)}m ${time(secondsDiff)}s `
-
+        // // MB
+        // if(bdTime.getDate() == date && bdTime.getMonth() == month) {
+        //     isTime = true
+        //     tutorial.style.display = 'unset'
+        //     return
+        // }
     }
         
     setInterval(() => {
