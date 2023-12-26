@@ -26,8 +26,15 @@
     var dayName = ["Sunday","Monday","Tusday","Wednesday","Thursday","Friday","Saturday"]
     var monthName = ["January", "February"," March"," April"," May"," June"," July"," August"," September"," October"," November"," December"]
     var isTime = false
-    function setTime (bdTime) {
+    function time (time) {
+        if(time < 10) {
+            time = '0' + time
+        }
+        return time
+    }
+    function setTime () {
         var currentTime = new Date()
+
         var hours = currentTime.getHours()
         var minutes = currentTime.getMinutes();
         var seconds = currentTime.getSeconds();
@@ -35,15 +42,11 @@
         var date = currentTime.getDate();
         var month = currentTime.getMonth();
         var year = currentTime.getFullYear();
-        function time (time) {
-            if(time < 10) {
-                time = '0' + time
-            }
-            return time
-        }
-        time(hours)
         clock_hours.innerHTML = time(hours) + ':' + time(minutes) + ':' + time(seconds)
         clock_years.innerHTML = dayName[day] + ' ' + date + monthName[month] + ' ' + year
+    }
+    function timeCount(bdTime) {
+        var currentTime = new Date()
         var diff = bdTime - currentTime
         // PC   
         var dayDiff = Math.floor(diff/ 60 /60 /1000/ 24)
@@ -59,7 +62,7 @@
         }
         // MB
     //     if (date <= bdTime.getDate() && month <= bdTime.getMonth()) {
-
+    
     //     } else {
     //     isTime = true
     //     countdown.innerHTML = "Time left : 0d 0h 0m 0s"
@@ -69,7 +72,8 @@
     }
         
     setInterval(() => {
-        setTime(bdTime)
+        setTime()
+        timeCount(bdTime)
     }, 1000)
     body.onclick = function() {
         if(isTime == true) {
