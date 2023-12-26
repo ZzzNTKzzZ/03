@@ -41,25 +41,23 @@
         var date = currentTime.getDate();
         var month = currentTime.getMonth();
         var year = currentTime.getFullYear();
-        var currentTime = new Date()
-        var diff = bdTime - currentTime
         clock_hours.innerHTML = time(hours) + ':' + time(minutes) + ':' + time(seconds)
         clock_years.innerHTML = dayName[day] + ' ' + date + monthName[month] + ' ' + year
         // PC   
-        console.log(diff)
-        if(diff <= 0) {
+        if(bdTime.getDate() <= date && bdTime.getMonth() <= month) {
             isTime = true
             countdown.innerHTML = "Time left : 0d 0h 0m 0s"
             tutorial.style.display = 'unset'
             return
-        } else {
+        }
+        if(body.scrollWidth > 740) {
+            var diff = bdTime - currentTime
             var dayDiff = Math.floor(diff/ 60 /60 /1000/ 24)
             var hoursDiff = Math.floor(diff/ 60/ 1000/ 60)% 24
             var minutesDiff = Math.floor(diff/ 1000/ 60) % 60
             var secondsDiff = Math.floor (diff/ 1000) % 60
             countdown.innerHTML = `Time left : ${time(dayDiff)}d ${time(hoursDiff)}h ${time(minutesDiff)}m ${time(secondsDiff)}s `
-            return
-        }
+        } 
     }
         // MB
     //     if (date <= bdTime.getDate() && month <= bdTime.getMonth()) {
