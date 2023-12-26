@@ -75,7 +75,4 @@ body{
     .clock_years, .countdown, .tutorial{
         font-size: 20px !important;
     }
-    .countdown {
-        display: none;
-    }
 }
