@@ -35,7 +35,7 @@
 }
 
 #main-img {
-    max-width: 600px;
+    max-width: 500px;
 }
 
 .box-audio {
@@ -59,57 +59,34 @@ footer a{
 
 #button {
     position: absolute;
-    top: 35%;
-    font-size: 45px;
+    top: 25%;
+    padding: 30px;
+    border-radius: 5%;
+    font-size: 100px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
     text-shadow: 0 0 20px #39c6d6, 0 0 58px #39c6d6, 0 0 108px #39c6d6;
-
+    background-color: rgb(255, 255, 255, 0.1);
 }
 
 #button > span{
     animation: glow 2.5s ease-in-out infinite;
 }
-
-
 #button > span:nth-child(2){
-    animation-delay: .2s ;
+    animation-delay: .8s ;
 }
 #button > span:nth-child(3){
-    animation-delay: .4s ;
+    animation-delay: .12s ;
 }
 #button > span:nth-child(4){
-    animation-delay: .6s;
+    animation-delay: .16s;
 }
 #button > span:nth-child(5){
-    animation-delay: .8s;
+    animation-delay: .20s;
 }
-#button > span:nth-child(6){
-    animation-delay: 1.0s;
+#typinh-text {
+    overflow: auto;
 }
-#button > span:nth-child(7){
-    animation-delay: 1.2s;
-}
-#button > span:nth-child(8){
-    animation-delay: 1.4s;
-}
-#button > span:nth-child(9){
-    animation-delay: 1.6s;
-}
-#button > span:nth-child(10){
-    animation-delay: 1.8s;
-}
-#button > span:nth-child(11){
-    animation-delay: 2.0s;
-}
-#button > span:nth-child(12){
-    animation-delay: 2.2s;
-}
-#button > span:nth-child(13){
-    animation-delay: 2.4s;
-}
-
-
 @keyframes glow{
     0%, 100%{
         color: #fff;
@@ -132,7 +109,7 @@ footer a{
     top: 75%;
     text-shadow: 0 0 20px #39c6d6, 0 0 58px #39c6d6, 0 0 108px #39c6d6;
     animation: fading 6s;
-    font-size: 30px;
+    font-size: 45px;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 3px;
     cursor: pointer;

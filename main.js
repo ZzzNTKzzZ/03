@@ -31,23 +31,19 @@ background.onclick =function() {
 }
 }
 var aText = new Array(
-    'Alo alo, nghe chứ', 
-    'Chúc mừng sinh nhật nha',
-    'Chúc mi tuổi mới thiệt vui nè',
-    'Cầu tiền được tiền cầu tài được tài cầu tình được tình',
-    '...',
-    'Lộn rồi :))',
-    'Nói chung là chúc mi sinh nhật vui vẻ',
-    'Happy Birthday Tuyết Ngọc'
+        "Hé lu Thư",
+        "Chúc m 20/10 vui vẻ",
+        "Có nhiều niềm vui hơn và luôn xinh đẹp trong mắt mọi người",
+        "20/10 vui vẻ nha",
     );
-    var iSpeed = 50; // time delay of print out
-    var iIndex = 0; // start printing array at this posision
-    var iArrLength = aText[0].length; // the length of the text array
-    var iScrollAt = 20; // start scrolling up at this many lines
+    var iSpeed = 50;  
+    var iIndex = 0;  
+    var iArrLength = aText[0].length; 
+    var iScrollAt = 20;  
      
-    var iTextPos = 0; // initialise text position
-    var sContents = ''; // initialise contents variable
-    var iRow; // initialise current row
+    var iTextPos = 0; 
+    var sContents = ''; 
+    var iRow; 
      
     function typewriter()
     {
@@ -55,16 +51,16 @@ var aText = new Array(
      iRow = Math.max(0, iIndex-iScrollAt);
      var destination = document.getElementById("typing-text");
      
-     while ( iRow < iIndex ) {
+     while (iRow < iIndex ) {
       sContents += aText[iRow++] + '<br />';
      }
      destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
-     if ( iTextPos++ == iArrLength ) {
+     if (iTextPos++ == iArrLength) {
       iTextPos = 0;
       iIndex++;
       if ( iIndex != aText.length ) {
        iArrLength = aText[iIndex].length;
-       setTimeout("typewriter()", 500);
+       setTimeout("typewriter()", 600);
       }
      } else {
       setTimeout("typewriter()", iSpeed);
