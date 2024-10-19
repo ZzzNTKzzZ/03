@@ -31,16 +31,15 @@ background.onclick =function() {
 }
 }
 var aText = new Array(
-        "Hé lu Thư",
-        "Chúc m 20/10 vui vẻ",
+        "Hé lô Thư.",
+        "Chúc m 20/10 vui vẻ,",
         "Có nhiều niềm vui hơn và luôn xinh đẹp trong mắt mọi người",
-        "20/10 vui vẻ nha",
+        "20/10 vui vẻ nha!!!",
     );
     var iSpeed = 50;  
     var iIndex = 0;  
     var iArrLength = aText[0].length; 
     var iScrollAt = 20;  
-     
     var iTextPos = 0; 
     var sContents = ''; 
     var iRow; 
